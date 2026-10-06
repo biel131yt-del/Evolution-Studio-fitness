@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --color-evo-black: #050505;
+  --color-evo-carbon: #0b0b0b;
+  --color-evo-card: #111311;
+  --color-evo-green: #2bff00;
+  --color-evo-green-dark: #16a800;
+  --color-evo-lime: #b6ff5c;
+  --color-evo-silver: #c9cdd3;
+  --color-evo-gray: #8a8f98;
+  --font-sans: Inter, Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --background: #050505;
+  --foreground: #f5f5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.evo-text-glow {
+  text-shadow: 0 0 24px rgba(43, 255, 0, 0.45);
+}
+
+.evo-gradient-text {
+  background: linear-gradient(110deg, #e8ffe0 10%, #2bff00 40%, #eaffea 55%, #2bff00 70%, #b6ff5c 90%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: evo-shine 5s linear infinite;
+}
+
+@keyframes evo-shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-glow {
+  background:
+    radial-gradient(700px 340px at 50% -60px, rgba(43, 255, 0, 0.28), transparent 70%),
+    radial-gradient(900px 500px at 85% 10%, rgba(43, 255, 0, 0.1), transparent 70%),
+    radial-gradient(700px 500px at 10% 90%, rgba(43, 255, 0, 0.07), transparent 70%);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 0 1px rgba(43,255,0,.5), 0 20px 60px -20px rgba(43,255,0,.35);
+  transform: translateY(-4px);
+}
+.card-glow {
+  transition: all .3s ease;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes float-pulse {
+  0%,100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.03); }
+}
+.animate-float {
+  animation: float-pulse 3.5s ease-in-out infinite;
+}
+
+.silver-text {
+  background: linear-gradient(135deg, #f2f4f6 0%, #c9cdd3 35%, #8a8f98 55%, #eef1f4 75%, #aab0b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== PAAAM HERO ===== */
+.text-stroke-green {
+  -webkit-text-stroke: 2px #2bff00;
+  color: transparent;
+}
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255,255,255,.85);
+  color: transparent;
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(43,255,0,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,255,0,.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(800px 500px at 50% 30%, black 40%, transparent 75%);
+}
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.anim-fade-up { opacity: 0; animation: fade-up .8s cubic-bezier(.2,.7,.2,1) forwards; }
+.d1 { animation-delay: .05s; } .d2 { animation-delay: .15s; } .d3 { animation-delay: .25s; }
+.d4 { animation-delay: .35s; } .d5 { animation-delay: .5s; } .d6 { animation-delay: .65s; }
+
+@keyframes orb-a {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(60px,-40px) scale(1.15); }
+}
+@keyframes orb-b {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-70px,50px) scale(.9); }
+}
+.animate-orb-a { animation: orb-a 9s ease-in-out infinite; }
+.animate-orb-b { animation: orb-b 11s ease-in-out infinite; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 22s linear infinite; }
+
+@keyframes eq {
+  0%,100% { transform: scaleY(.3); }
+  50% { transform: scaleY(1); }
+}
+.eq-bar { transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
+
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::after {
+  content: ""; position: absolute; top: 0; left: -80%;
+  width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent);
+  transform: skewX(-20deg);
+  animation: btn-sweep 2.8s ease-in-out infinite;
+}
+@keyframes btn-sweep {
+  0% { left: -80%; } 55%,100% { left: 130%; }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(43,255,0,.55); }
+  70% { box-shadow: 0 0 0 18px rgba(43,255,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(43,255,0,0); }
+}
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+@keyframes blink-caret { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.caret { animation: blink-caret 1s step-end infinite; }
